@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CloudSim Simulation Report</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         background: #f5f5f0; color: #1a1a18; line-height: 1.6; }
+  .page { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+  header { border-bottom: 2px solid #1D9E75; padding-bottom: 20px; margin-bottom: 36px; }
+  header h1 { font-size: 28px; font-weight: 600; color: #1a1a18; }
+  header p  { color: #5f5e5a; margin-top: 6px; font-size: 14px; }
+  h2 { font-size: 20px; font-weight: 500; margin: 40px 0 16px; color: #1a1a18; }
+  h3 { font-size: 16px; font-weight: 500; margin-bottom: 12px; }
+
+  .summary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+  .summary-card { background: #fff; border: 1px solid #e0ded8; border-radius: 10px;
+                  padding: 16px; border-top: 3px solid #1D9E75; }
+  .summary-card .label { font-size: 12px; color: #888780; text-transform: uppercase;
+                          letter-spacing: .04em; margin-bottom: 4px; }
+  .summary-card .winner { font-size: 18px; font-weight: 600; color: #0F6E56; }
+  .summary-card .value  { font-size: 13px; color: #5f5e5a; margin-top: 2px; }
+
+  table { width: 100%; border-collapse: collapse; background: #fff;
+          border-radius: 10px; overflow: hidden;
+          border: 1px solid #e0ded8; font-size: 13px; }
+  th { background: #1D9E75; color: #fff; padding: 12px 14px;
+       text-align: left; font-weight: 500; white-space: nowrap; }
+  td { padding: 11px 14px; border-bottom: 1px solid #f0ede8; white-space: nowrap; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f9f8f5; }
+  .best  { background: #e1f5ee !important; color: #0F6E56; font-weight: 600; }
+  .worst { background: #fcebeb !important; color: #A32D2D; }
+  .algo-name { font-weight: 600; color: #1a1a18; }
+
+  .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .chart-box { background: #fff; border: 1px solid #e0ded8; border-radius: 10px; padding: 16px; }
+  .chart-box h3 { font-size: 14px; color: #5f5e5a; margin-bottom: 12px; }
+  .chart-box img { width: 100%; border-radius: 6px; }
+
+  .algo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+  .algo-card { background: #fff; border: 1px solid #e0ded8; border-radius: 10px; padding: 16px; }
+  .algo-card .tag { display: inline-block; background: #e1f5ee; color: #0F6E56;
+                    font-size: 11px; padding: 2px 8px; border-radius: 20px;
+                    font-weight: 500; margin-bottom: 8px; }
+  .algo-card p { font-size: 13px; color: #5f5e5a; }
+  .algo-card h3 { color: #1a1a18; font-size: 14px; }
+  footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #e0ded8;
+           font-size: 12px; color: #888780; text-align: center; }
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <h1>CloudSim Load Balancing — Simulation Report</h1>
+  <p>Generated:2026-08-26 17:58:03 &nbsp;|&nbsp; 9 algorithms &nbsp;|&nbsp; 8 metrics per algorithm</p>
+</header>
+<h2>Best algorithm per metric</h2>
+<div class="summary-grid">
+<div class="summary-card"><div class="label">Avg response time</div><div class="winner">AdaptiveGreenPSO</div><div class="value">11.4247</div></div>
+<div class="summary-card"><div class="label">Makespan</div><div class="winner">AdaptiveGreenPSO</div><div class="value">30.8765</div></div>
+<div class="summary-card"><div class="label">Throughput</div><div class="winner">AdaptiveGreenPSO</div><div class="value">0.4858</div></div>
+<div class="summary-card"><div class="label">Load imbalance</div><div class="winner">PSO</div><div class="value">1.7588</div></div>
+<div class="summary-card"><div class="label">SLA violations</div><div class="winner">PSO</div><div class="value">9</div></div>
+<div class="summary-card"><div class="label">Energy (kWh)</div><div class="winner">AdaptiveGreenPSO</div><div class="value">0.001542</div></div>
+<div class="summary-card"><div class="label">Cost (USD)</div><div class="winner">AdaptiveGreenPSO</div><div class="value">0.015077</div></div>
+<div class="summary-card"><div class="label">CO2 (grams)</div><div class="winner">Static</div><div class="value">0.7851</div></div>
+</div>
+<h2>Full comparison table</h2>
+<table>
+<thead><tr><th>Algorithm</th><th>AvgResponseTime</th><th>Makespan</th><th>Throughput</th><th>ImbalanceIndex</th><th>SLAViolations</th><th>EnergyKWh</th><th>CostUSD</th><th>CO2Grams</th></tr></thead>
+<tbody>
+<tr><td class="algo-name">Static</td><td>15.7027</td><td>40.2100</td><td>0.3730</td><td class="worst">16.0000</td><td class="worst">12</td><td>0.001653</td><td>0.015083</td><td class="best">0.7851</td></tr>
+<tr><td class="algo-name">RoundRobin</td><td>18.4245</td><td>64.0420</td><td>0.2342</td><td>8.5333</td><td>11</td><td>0.002358</td><td>0.015118</td><td>1.1201</td></tr>
+<tr><td class="algo-name">WeightedRR</td><td class="worst">20.4247</td><td>54.5430</td><td>0.2750</td><td>6.0015</td><td class="worst">12</td><td>0.002058</td><td>0.015103</td><td>0.9775</td></tr>
+<tr><td class="algo-name">Adaptive</td><td>18.9136</td><td>51.7100</td><td>0.2901</td><td>4.7627</td><td>11</td><td>0.002265</td><td>0.015113</td><td>1.0759</td></tr>
+<tr><td class="algo-name">MinMin</td><td>14.3135</td><td>41.8767</td><td>0.3582</td><td>6.9025</td><td class="best">9</td><td>0.001799</td><td>0.015090</td><td>0.8547</td></tr>
+<tr><td class="algo-name">PSO</td><td>16.2136</td><td>51.8767</td><td>0.2891</td><td class="best">1.7588</td><td class="best">9</td><td>0.002034</td><td>0.015102</td><td>0.9663</td></tr>
+<tr><td class="algo-name">Paper-Based PSO</td><td>12.0135</td><td>32.3765</td><td>0.4633</td><td>9.1214</td><td>11</td><td>0.001575</td><td>0.015079</td><td>0.8175</td></tr>
+<tr><td class="algo-name">AdaptiveGreenPSO</td><td class="best">11.4247</td><td class="best">30.8765</td><td class="best">0.4858</td><td>8.7980</td><td>10</td><td class="best">0.001542</td><td class="best">0.015077</td><td>0.8077</td></tr>
+<tr><td class="algo-name">FaultTolerant</td><td>19.0912</td><td class="worst">66.0420</td><td class="worst">0.2271</td><td>9.1876</td><td>11</td><td class="worst">0.002470</td><td class="worst">0.015123</td><td class="worst">1.1731</td></tr>
+</tbody></table>
+<h2>Charts</h2>
+<div class="chart-grid">
+<div class="chart-box"><h3>Algorithm comparison (bar)</h3><img src="comparison_chart.png" alt="Algorithm comparison (bar)"/></div>
+<div class="chart-box"><h3>Multi-dimensional radar chart</h3><img src="radar_chart.png" alt="Multi-dimensional radar chart"/></div>
+<div class="chart-box"><h3>Task execution timeline (Gantt)</h3><img src="gantt_chart.png" alt="Task execution timeline (Gantt)"/></div>
+<div class="chart-box"><h3>PSO convergence curve</h3><img src="pso_convergence.png" alt="PSO convergence curve"/></div>
+</div>
+<h2>Algorithm overview</h2>
+<div class="algo-grid">
+<div class="algo-card"><span class="tag">Baseline</span><h3>Static</h3><p>All tasks sent to VM-0. Demonstrates worst-case overloading.</p></div>
+<div class="algo-card"><span class="tag">Simple heuristic</span><h3>RoundRobin</h3><p>Cyclic distribution. Fair but ignores VM speed.</p></div>
+<div class="algo-card"><span class="tag">Capacity-aware</span><h3>WeightedRR</h3><p>Tasks proportional to MIPS rating. Better utilisation.</p></div>
+<div class="algo-card"><span class="tag">Dynamic</span><h3>Adaptive</h3><p>Priority-aware + auto-scaling. Threshold-based overload guard.</p></div>
+<div class="algo-card"><span class="tag">Classic research</span><h3>MinMin</h3><p>Assigns each task to the VM with minimum completion time.</p></div>
+<div class="algo-card"><span class="tag">Bio-inspired</span><h3>PSO</h3><p>Particle Swarm Optimisation using makespan and SLA penalty.</p></div>
+<div class="algo-card"><span class="tag">Paper baseline</span><h3>Paper-Based PSO</h3><p>Workflow thresholds with fixed makespan, energy and load objectives.</p></div>
+<div class="algo-card"><span class="tag">Proposed</span><h3>AdaptiveGreenPSO</h3><p>Adaptive normalized PSO for makespan, energy, carbon, SLA and load balance.</p></div>
+<div class="algo-card"><span class="tag">Resilient</span><h3>FaultTolerant</h3><p>VM failure injection + automatic task migration + recovery.</p></div>
+</div>
+<footer>CloudSim Advanced Load Balancing Simulation &mdash; Final Year Project</footer>
+</div></body></html>
